@@ -137,6 +137,7 @@ return [
 
     'providers' => [
 
+        Yajra\Datatables\DatatablesServiceProvider::class,
         Laratrust\LaratrustServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
 

@@ -12,6 +12,9 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="/css/jquery.dataTables.css" rel="stylesheet">
+    <link href="/css/dataTables.bootstrap.css" rel="stylesheet"> -->
 
     <!-- Scripts -->
     <script>
@@ -46,6 +49,8 @@
                 <ul class="nav navbar-nav">
                  @if (Auth::check())
                 <li><a href="{{ url('/home') }}">Dashboard</a></li>
+                <li><a href="{{ route('authors.index') }}">Penulis</a></li>
+                <li><a href="{{ route('books.index') }}">Buku</a></li>
                  @endif
                 </ul>
 
@@ -82,10 +87,16 @@
             </div>
         </nav>
 
+        @include('layouts._flash')
         @yield('content')
     </div>
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+<!-- <script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/dataTables.bootstrap.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+<script src="/js/custom.js"></script>
+@yield('scripts')
+<script src="/js/app.js"></script>
 </body>
 </html>
