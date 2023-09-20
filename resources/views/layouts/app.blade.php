@@ -13,6 +13,8 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="/css/selectize.css" rel="stylesheet">
+    <link href="/css/selectize.bootstrap3.css" rel="stylesheet"> -->
     <!-- <link href="/css/jquery.dataTables.css" rel="stylesheet">
     <link href="/css/dataTables.bootstrap.css" rel="stylesheet"> -->
 
@@ -48,10 +50,24 @@
                     <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                  @if (Auth::check())
-                <li><a href="{{ url('/home') }}">Dashboard</a></li>
-                <li><a href="{{ route('authors.index') }}">Penulis</a></li>
-                <li><a href="{{ route('books.index') }}">Buku</a></li>
+                <!-- <li><a href="{{ url('/home') }}">Dashboard</a></li> -->
+                {!! Html::smartNav(url('/home'), 'Dashboard') !!}
                  @endif
+                 @role('admin')
+                <!-- <li><a href="{{ route('authors.index') }}">Penulis</a></li>
+                <li><a href="{{ route('books.index') }}">Buku</a></li>
+                <li><a href="{{ route('members.index') }}">Member</a></li>
+                <li><a href="{{ route('statistics.index') }}">Peminjaman</a></li> -->
+                {!! Html::smartNav(route('authors.index'), 'Penulis') !!}
+                {!! Html::smartNav(route('books.index'), 'Buku') !!}
+                {!! Html::smartNav(route('members.index'), 'Member') !!}
+                {!! Html::smartNav(route('statistics.index'), 'Peminjaman') !!}
+                @endrole
+                @if (auth()->check())
+                <!-- <li><a href="{{ url('/settings/profile') }}">Profil</a></li> -->
+                {!! Html::smartNav(url('/settings/profile'), 'Profil') !!}
+                @endif
+
                 </ul>
 
 
@@ -68,6 +84,8 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/settings/password') }}"><i class="fa fa-btn fa-lock"></i> Ubah \
+                                 Password</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
@@ -94,6 +112,7 @@
     <!-- Scripts -->
 <!-- <script src="/js/jquery.dataTables.min.js"></script>
 <script src="/js/dataTables.bootstrap.min.js"></script> -->
+<!-- <script src="/js/selectize.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
 <script src="/js/custom.js"></script>
 @yield('scripts')

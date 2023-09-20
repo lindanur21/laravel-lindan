@@ -21,6 +21,7 @@ $admin = new User();
 $admin->name = 'Admin Larapus';
 $admin->email = 'admin@gmail.com';
 $admin->password = bcrypt('rahasia');
+$admin->is_verified = 1;
 $admin->save();
 $admin->attachRole($adminRole);
 // Membuat sample member
@@ -28,6 +29,7 @@ $member = new User();
 $member->name = "Sample Member";
 $member->email = 'member@gmail.com';
 $member->password = bcrypt('rahasia');
+$member->is_verified = 1;
 $member->save();
 $member->attachRole($memberRole);
 }

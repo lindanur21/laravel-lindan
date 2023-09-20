@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Session;
 
 class Author extends Model
 {
-      // protected $fillable = ['name'];
+      protected $fillable = ['name'];
 
       public static function boot()
       {

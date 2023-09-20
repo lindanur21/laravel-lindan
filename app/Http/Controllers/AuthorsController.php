@@ -33,9 +33,8 @@ class AuthorsController extends Controller
         }
         $html = $htmlBuilder
         // ->addColumn(['data' => 'name', 'name'=>'name', 'title'=>'Nama']);
-        ->addColumn(['data' => 'name', 'name'=>'name', 'title'=>'Nama'])
-        ->addColumn(['data' => 'action', 'name'=>'action', 'title'=>'', 'orderable'=>false, '\
-        searchable'=>false]);
+        ->addColumn(['data' => 'name', 'name' => 'name', 'title' => 'Nama'])
+        ->addColumn(['data' => 'action', 'name' => 'action', 'title' => '', 'orderable' => false, 'searchable' => false]);
         return view('authors.index')->with(compact('html'));
     }
 
