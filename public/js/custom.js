@@ -1,4 +1,4 @@
-$(document).ready(function () {
+   $(document).ready(function () {
     // confirm delete
     $(document.body).on('submit', '.js-confirm', function () {
     var $el = $(this)
