@@ -50,13 +50,6 @@ class AuthorsController extends Controller
 
     public function store(Request $request)
     {
-        // $this->validate($request, ['name' => 'required|unique:authors']);
-        // $author = Author::create($request->all('name'));
-        // Session::flash("flash_notification", [
-        //   "level"=>"success",
-        //   "message"=>"Berhasil menyimpan data $author->name"
-        //   ]);
-        // return redirect()->route('authors.index');
         $this->validate($request, ['name' => 'required|unique:authors']);
         $author = Author::create($request->all());
         Session::flash("flash_notification", [
@@ -123,12 +116,6 @@ class AuthorsController extends Controller
      */
     public function destroy($id)
     {
-        // Author::destroy($id);
-        // Session::flash("flash_notification", [
-        // "level"=>"success",
-        // "message"=>"Penulis berhasil dihapus"
-        // ]);
-        // return redirect()->route('authors.index');
         if (!Author::destroy($id)) {
             return redirect()->back();
         }

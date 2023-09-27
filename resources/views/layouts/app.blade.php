@@ -112,8 +112,6 @@
     </div>
 
     <!-- Scripts -->
-    <!-- <script src="/js/jquery.dataTables.min.js"></script>
-    <script src="/js/dataTables.bootstrap.min.js"></script> -->
     <!-- <script src="/js/selectize.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="
         crossorigin="anonymous"></script>

@@ -10,7 +10,7 @@ class PostsTableSeeder extends Seeder
             ['title' => 'Haruskah Menunda Nikah?', 'content' => 'lorem ipsum'],
             ['title' => 'Membangun Visi Misi Keluarga', 'content' => 'lorem ipsum'],
         ];
-// masukkan data ke database
+        // masukkan data ke database
         DB::table('posts')->insert($posts);
     }
 }

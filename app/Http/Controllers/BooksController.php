@@ -215,14 +215,6 @@ class BooksController extends Controller
         ]);
         return redirect()->route('books.index');
     }
-    //     public function destroy(Request $request, $id)
-    // {
-    // $book = Book::find($id);
-    // $cover = $book->cover;
-    // if(!$book->delete()) return redirect()->back();
-    // // handle hapus buku via ajax
-    // if ($request->ajax()) return response()->json(['id' => $id]);
-    // }
 
     public function borrow($id)
     {
@@ -280,28 +272,6 @@ class BooksController extends Controller
             'author_id.required' => 'Anda belum memilih penulis. Pilih minimal 1 penulis.',
         ]);
         $books = Book::whereIn('id', $request->get('author_id'))->get();
-        // Excel::create('Data Buku Larapus', function($excel) use ($books) {
-        // // Set property
-        // $excel->setTitle('Data Buku Larapus')
-        // ->setCreator(Auth::user()->name);
-        // $excel->sheet('Data Buku', function($sheet) use ($books) {
-        // $row = 1;
-        // $sheet->row($row, [
-        // 'Judul',
-        // 'Jumlah',
-        // 'Stok',
-        // 'Penulis'
-        // ]);
-        // foreach ($books as $book) {
-        // $sheet->row(++$row, [
-        // $book->title,
-        // $book->amount,
-        // $book->stock,
-        // $book->author->name
-        // ]);
-        // }
-        // });
-        // })->export('xls');
         $handler = 'export' . ucfirst($request->get('type'));
         return $this->$handler($books);
     }
